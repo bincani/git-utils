@@ -1,2 +1,2 @@
 # git-utils
-git utila
+git utils
