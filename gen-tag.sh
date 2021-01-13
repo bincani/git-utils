@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# get latest branch updates
+git pull
+
 # generate a tag name with mask YYYYMMDD_release_vM.m.r.p.X
 # e.g. 20190117_release_v1.9.3.8.62
 
