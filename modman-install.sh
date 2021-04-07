@@ -25,6 +25,7 @@ else
 fi
 
 if [ -z "$(git status --porcelain)" ]; then 
+    git pull
     modman clone $REPO
     modman update $MODULE --force --copy
     git add .
