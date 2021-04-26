@@ -27,7 +27,7 @@ fi
 if [ -z "$(git status --porcelain)" ]; then 
     CBRANCH=$(git -C .modman/$MODULE symbolic-ref --short -q HEAD)
     if [[ "$CBRANCH" != 'master' ]]; then
-        echo "$MODULE is on the master branch (current: $CBRANCH)"
+        echo "$MODULE is NOT on the master branch (current: $CBRANCH)"
         exit 1
     fi
     git pull
