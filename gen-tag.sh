@@ -3,6 +3,18 @@
 # get latest branch updates
 git pull
 
+if [ ! -z "$(git status --porcelain)" ]; then
+    echo "Cannot tag as there are Uncommitted changes!"
+    git status --porcelain
+    exit 1
+fi
+
+CBRANCH=$(git symbolic-ref --short -q HEAD)
+if [ "$CBRANCH" != 'master' ]; then
+    echo "can only tag the master branch (current: $CBRANCH)"
+    exit 1
+fi
+
 # generate a tag name with mask YYYYMMDD_release_vM.m.r.p.X
 # e.g. 20190117_release_v1.9.3.8.62
 
