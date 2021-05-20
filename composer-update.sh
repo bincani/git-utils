@@ -5,7 +5,7 @@
 # cu
 
 if [ -z "$(git status --porcelain)" ]; then
-    CBRANCH=$(git -C .modman/$MODULE symbolic-ref --short -q HEAD)
+    CBRANCH=$(git symbolic-ref --short -q HEAD)
     if [ "$CBRANCH" != 'master' ]; then
         echo "You must be on the master branch to update (current: $CBRANCH)"
         exit 1
