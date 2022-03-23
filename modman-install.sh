@@ -11,9 +11,9 @@ MODULE=$(echo "$MODULE" | sed 's/\(.*\)/\L\1/')
 echo "installing $MODULE"
 
 # test url 401 Unauthorized is OK
-URL=https://bincani@bitbucket.org/factoryx-developers/$MODULE.git
+URL=https://developers@bitbucket.org/factoryx-developers/$MODULE.git
 
-RCODE=$(wget --server-response $URL 2>&1 | awk '/^  HTTP/{print $2}')
+RCODE=$(curl -s -I $URL 2>&1 | awk 'NR==1{print $2}')
 #echo "$RCODE"
 
 # if wget $URL >/dev/null 2>&1 ; then
